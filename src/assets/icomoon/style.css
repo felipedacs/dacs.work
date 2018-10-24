@@ -1,0 +1,154 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?l4fpb9');
+  src:  url('fonts/icomoon.eot?l4fpb9#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?l4fpb9') format('truetype'),
+    url('fonts/icomoon.woff?l4fpb9') format('woff'),
+    url('fonts/icomoon.svg?l4fpb9#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-star:before {
+  content: "\f005";
+}
+.icon-linkedin-square:before {
+  content: "\f08c";
+}
+.icon-github:before {
+  content: "\f09b";
+}
+.icon-chain:before {
+  content: "\f0c1";
+}
+.icon-link:before {
+  content: "\f0c1";
+}
+.icon-envelope:before {
+  content: "\f0e0";
+}
+.icon-youtube-play:before {
+  content: "\f16a";
+}
+.icon-stack-overflow:before {
+  content: "\f16c";
+}
+.icon-trello:before {
+  content: "\f181";
+}
+.icon-deviantart:before {
+  content: "\f1bd";
+}
+.icon-codepen:before {
+  content: "\f1cb";
+}
+.icon-jsfiddle:before {
+  content: "\f1cc";
+}
+.icon-paper-plane:before {
+  content: "\f1d8";
+}
+.icon-send:before {
+  content: "\f1d8";
+}
+.icon-slideshare:before {
+  content: "\f1e7";
+}
+.icon-reddit-alien:before {
+  content: "\f281";
+}
+.icon-gitlab:before {
+  content: "\f296";
+}
+.icon-user-circle:before {
+  content: "\f2bd";
+}
+.icon-free-code-camp:before {
+  content: "\f2c5";
+}
+.icon-x:before {
+  content: "\e900";
+}
+.icon-pacman:before {
+  content: "\e901";
+}
+.icon-heart:before {
+  content: "\e902";
+}
+.icon-bookmark:before {
+  content: "\e903";
+}
+.icon-forward:before {
+  content: "\e90d";
+}
+.icon-books:before {
+  content: "\e920";
+}
+.icon-profile:before {
+  content: "\e923";
+}
+.icon-hammer:before {
+  content: "\e996";
+}
+.icon-magic-wand:before {
+  content: "\e997";
+}
+.icon-terminal:before {
+  content: "\ea81";
+}
+.icon-google-drive:before {
+  content: "\ea8f";
+}
+.icon-IcoMoon:before {
+  content: "\eaea";
+}
+.icon-vue-dot-js:before {
+  content: "\e904";
+  color: #4fc08d;
+}
+.icon-steam:before {
+  content: "\e905";
+}
+.icon-webpack:before {
+  content: "\e906";
+  color: #8dd6f9;
+}
+.icon-gitlab1:before {
+  content: "\e90b";
+  color: #e24329;
+}
+.icon-git:before {
+  content: "\e90c";
+  color: #f05032;
+}
+.icon-vim:before {
+  content: "\e907";
+  color: #019733;
+}
+.icon-ubuntu:before {
+  content: "\e908";
+  color: #e95420;
+}
+.icon-discord:before {
+  content: "\e909";
+  color: #7289da;
+}
+.icon-atom:before {
+  content: "\e90a";
+  color: #66595c;
+}
