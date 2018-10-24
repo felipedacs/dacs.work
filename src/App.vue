@@ -6,7 +6,7 @@
     <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
-          <a href="https://github.com/felipedacs" target="_blank" class="navbar-item" title="Linkedin Account">
+          <a href="https://www.linkedin.com/in/felipedacs/" target="_blank" class="navbar-item" title="Linkedin Account">
             <i class="icon-linkedin-square"></i>
           </a>
           <a href="https://github.com/felipedacs" target="_blank" class="navbar-item" title="Github Account">
@@ -21,17 +21,17 @@
           <a href="https://www.slideshare.net/felipedacs" target="_blank" class="navbar-item" title="SlideShare Account">
             <i class="icon-slideshare"></i>
           </a>
-          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+          <!-- <span class="navbar-burger burger" data-target="navbarMenuHeroA">
             <span></span>
             <span></span>
             <span></span>
-          </span>
+          </span> -->
         </div>
-        <div id="navbarMenuHeroA" class="navbar-menu">
+        <!-- <div id="navbarMenuHeroA" class="navbar-menu">
           <div class="navbar-end">
-            <!-- <a href="#" class="navbar-item">
+             <a href="#" class="navbar-item">
               Blog escalímetro
-            </a> -->
+            </a>
             <span class="navbar-item">
               <a class="button is-primary is-inverted" href="https://docs.google.com/document/d/e/2PACX-1vR_0hauOrlPjHAYvKWeH5Xq_bYyExrv9M9qwxZFG3sk4SXYQQ4vDloNu4m6Vs3hyh8qKGOFh4wdORfq/pub" title="Curriculum publicado" target="_blank">
                 <span class="icon">
@@ -41,7 +41,7 @@
               </a>
             </span>
           </div>
-        </div>
+        </div> -->
       </div>
     </nav>
   </div>
