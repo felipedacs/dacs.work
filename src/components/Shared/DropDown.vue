@@ -1,26 +1,15 @@
 <template lang="html">
   <div class="dropdown is-hoverable drop">
     <div class="dropdown-trigger">
-      <button :class="{'button': true, 'is-small':true, 'is-fullwidth': true, 'is-primary': ip, 'is-info': ii, 'is-warning': iw}" aria-haspopup="true" aria-controls="dropdown-menu4">
-
-        <slot></slot>
-
-      </button>
+      <b-switch :type="classe" v-model="todos" :true-value="true" :false-value="false">
+      </b-switch>
     </div>
     <div class="dropdown-menu" id="dropdown-menu4" role="menu">
       <div class="dropdown-content">
         <div class="dropdown-item">
-          <div class="field">
-            <!-- <button type="button" class="button" @click="up(itens.length)">Retrieve</button> -->
-            <div class="field">
-              <b-switch :type="classe" v-model="todos">
-                on/off todos
-              </b-switch>
-            </div>
-          </div>
           <hr class="dropdown-divider">
-          <div class="field" v-for="(item, index) in itens" @click="change()">
-            <b-switch :type="classe" v-model="tags[index]" :true-value="item" :false-value="null">
+          <div class="field" v-for="(item, index) in itens">
+            <b-switch :type="classe" v-model="tags[index]" :true-value="item" :false-value="null" @click.native="switchChange(item)">
               {{item}}
             </b-switch>
           </div>
@@ -42,20 +31,42 @@ export default {
       libs: [],
       tags: [],
 
-      todosV: true
+
+      todosV: true,
+      ligaTodos: true,
     }
   },
   created() {
     //do something after creating vue instance
     this.leUsadas();
 
-    this.change();
+    this.emitChange();
   },
+  watch: {
+      // sempre que a pergunta mudar, essa função será executada
+      tags: function (newValues, oldValues) {
+        let nenhumaTag = true;
+        for (var i = 0; i < newValues.length; i++) {
+          if (newValues[i] != null) {
+            nenhumaTag = false;
+            break;
+          }
+        }
+        if (nenhumaTag) {
+          this.todosV = false;
+        }
+      }
+    },
   methods: {
-    change(){
+    switchChange(tag){
+      if (!this.todosV) {
+        this.ligaTodos = false;
+        this.todosV = true;
+      }
+    },
+    emitChange(){
       switch (this.espec) {
         case 'linguagens':
-        // console.log(this.tags);
         this.$emit('alteraLinguagem', this.tags)
         break;
         case 'frameworks':
@@ -65,26 +76,6 @@ export default {
         this.$emit('alteraBiblioteca', this.tags)
         break;
       }
-    },
-    up(length){
-      if (this.upTags) {
-        switch (this.espec) {
-          case 'linguagens':
-          this.tags = this.langs.slice()
-          break;
-          case 'frameworks':
-          this.tags = this.frameworks.slice()
-          break;
-          case 'bibliotecas':
-          this.tags = this.libs.slice()
-          break;
-        }
-        this.upTags = false;
-      } else {
-        this.tags.splice(0,this.tags.length);
-        this.upTags = true;
-      }
-
     },
     leUsadas() {
       // per project
@@ -128,24 +119,27 @@ export default {
       },
       // setter
       set: function (newValue) {
-        if (newValue) {
-          switch (this.espec) {
-            case 'linguagens':
-            this.tags = this.langs.slice()
-            break;
-            case 'frameworks':
-            this.tags = this.frameworks.slice()
-            break;
-            case 'bibliotecas':
-            this.tags = this.libs.slice()
-            break;
+        if (this.ligaTodos) {
+          if (newValue) {
+            switch (this.espec) {
+              case 'linguagens':
+              this.tags = this.langs.slice()
+              break;
+              case 'frameworks':
+              this.tags = this.frameworks.slice()
+              break;
+              case 'bibliotecas':
+              this.tags = this.libs.slice()
+              break;
+            }
+          } else {
+            for (var i = 0; i < this.tags.length; i++) {
+              this.tags[i] = null
+            }
           }
-          this.upTags = false;
-        } else {
-          this.tags.splice(0,this.tags.length);
-          this.upTags = true;
         }
-        this.change();
+        this.ligaTodos= true;
+        this.emitChange();
         this.todosV = newValue;
       }
     },

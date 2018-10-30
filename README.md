@@ -1,4 +1,5 @@
 # dacs.work
+* Deploy in this repo on gh-pages
 
 ## Project setup
 ```
@@ -13,6 +14,12 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
+```
+
+### Deploy on github and gitlab
+```
+chmod +x deploy.sh
+./deploy.sh
 ```
 
 ### Run your tests

@@ -9,27 +9,27 @@
 
     <div class="columns">
       <div class="column is-one-quarter">
-        <div class="notification is-light  has-text-centered">
-          <p class="title n-project">{{qtdProjetos}}</p>
+        <div class="notification is-light has-text-centered">
+          <p class="title n-project">{{qtdProjetos}}/{{$store.state.projetosDev.length}}</p>
           <p class="help">{{textoQtdProjetos}}</p>
 
-          <div class="">
+          <div class="drops">
 
             <b-tooltip label="Linguagens de programação">
               <dropdown @alteraLinguagem="alteraLinguagem($event)" :ip="true" classe="is-primary" espec="linguagens">
-                <span class="icon-hammer"></span>
+                <!-- <span class="icon-hammer"></span> -->
               </dropdown>
             </b-tooltip>
 
             <b-tooltip label="Frameworks" type="is-info">
               <dropdown @alteraFramework="alteraFramework($event)" :ii="true" classe="is-info" espec="frameworks">
-                <span class="icon-magic-wand"></span>
+                <!-- <span class="icon-magic-wand"></span> -->
               </dropdown>
             </b-tooltip>
 
             <b-tooltip label="Bibliotecas" type="is-warning">
               <dropdown @alteraBiblioteca="alteraBiblioteca($event)" :iw="true" classe="is-warning" espec="bibliotecas">
-                <span class="icon-books"></span>
+                <!-- <span class="icon-books"></span> -->
               </dropdown>
             </b-tooltip>
 
@@ -108,9 +108,9 @@ export default {
         }
       }
       if (contador == 0 || contador > 1) {
-        this.textoQtdProjetos = "projetos encontrados com alguma tag marcada"
+        this.textoQtdProjetos = "projetos filtrados"
       } else {
-        this.textoQtdProjetos = "projeto encontrado com alguma tag marcada"
+        this.textoQtdProjetos = "projeto filtrado"
       }
       return contador;
 
@@ -163,4 +163,13 @@ export default {
 .n-project{
   margin-bottom: 0 !important;
 }
+
+.notification{
+  padding: 1.25rem 1.5rem 1.25rem 1.5rem !important;
+}
+
+/* .drops{
+  position: sticky !important;
+  top: 50px !important;
+} */
 </style>
