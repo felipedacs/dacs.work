@@ -32,14 +32,6 @@
              <a href="#" class="navbar-item">
               Blog escalímetro
             </a>
-            <span class="navbar-item">
-              <a class="button is-primary is-inverted" href="https://docs.google.com/document/d/e/2PACX-1vR_0hauOrlPjHAYvKWeH5Xq_bYyExrv9M9qwxZFG3sk4SXYQQ4vDloNu4m6Vs3hyh8qKGOFh4wdORfq/pub" title="Curriculum publicado" target="_blank">
-                <span class="icon">
-                  <i class="icon-google-drive"></i>
-                </span>
-                <span>Curriculum</span>
-              </a>
-            </span>
           </div>
         </div> -->
       </div>
@@ -59,14 +51,11 @@
   </div>
 
 <Menu></Menu>
-
-
 </section>
-<article class="notification is-white">
+
 <div class="content about">
 <router-view/>
 </div>
-</article>
 
 <footer class="footer">
   <div class="content">

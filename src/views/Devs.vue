@@ -1,49 +1,40 @@
 <template lang="html">
   <div class="">
-    <h1 class="has-text-centered">Projetos</h1>
+    <div class="notification is-white">
+      <h1>Projetos</h1>
+      <p class="help">*Para aplicar os filtros passe o mouse sobre os switchers ou os pressione pelo celular. Caso queira marcar/desmarcar a categoria inteira ou um item específico, basta clicar no switch.</p>
+    </div>
 
     <!-- visualizar resultados -->
     <!-- {{langs}}
     {{frameworks}}
     {{libs}} -->
 
-    <div class="columns">
-      <div class="column is-one-quarter">
-        <div class="notification is-light has-text-centered">
-          <p class="title n-project">{{qtdProjetos}}/{{$store.state.projetosDev.length}}</p>
-          <p class="help">{{textoQtdProjetos}}</p>
+    <div class="stica notification notification-menu is-light has-text-centered">
+      <p class="filtroMenu"><span class="title n-project">{{qtdProjetos}}/{{$store.state.projetosDev.length}}</span>&nbsp;&nbsp;<span class="help qtdDevs">{{textoQtdProjetos}}</span></p>
 
-          <div class="drops">
 
-            <b-tooltip label="Linguagens de programação">
-              <dropdown @alteraLinguagem="alteraLinguagem($event)" :ip="true" classe="is-primary" espec="linguagens">
-                <!-- <span class="icon-hammer"></span> -->
-              </dropdown>
-            </b-tooltip>
+      <b-tooltip label="Linguagens de programação">
+        <dropdown @alteraLinguagem="alteraLinguagem($event)" :ip="true" classe="is-primary" espec="linguagens">
+        </dropdown>
+      </b-tooltip>
 
-            <b-tooltip label="Frameworks" type="is-info">
-              <dropdown @alteraFramework="alteraFramework($event)" :ii="true" classe="is-info" espec="frameworks">
-                <!-- <span class="icon-magic-wand"></span> -->
-              </dropdown>
-            </b-tooltip>
+      <b-tooltip label="Frameworks" type="is-info">
+        <dropdown @alteraFramework="alteraFramework($event)" :ii="true" classe="is-info" espec="frameworks">
+        </dropdown>
+      </b-tooltip>
 
-            <b-tooltip label="Bibliotecas" type="is-warning">
-              <dropdown @alteraBiblioteca="alteraBiblioteca($event)" :iw="true" classe="is-warning" espec="bibliotecas">
-                <!-- <span class="icon-books"></span> -->
-              </dropdown>
-            </b-tooltip>
+      <b-tooltip label="Bibliotecas" type="is-warning">
+        <dropdown @alteraBiblioteca="alteraBiblioteca($event)" :iw="true" classe="is-warning" espec="bibliotecas">
+        </dropdown>
+      </b-tooltip>
+    </div>
 
-          </div>
+    <div class="notification is-white">
+      <div class="columns is-multiline">
+        <div class="column is-narrow" v-for="(projeto, index) in this.$store.state.projetosDev">
+          <Project :projeto="projeto" v-show="mostraProjeto(projeto)"></Project>
         </div>
-      </div>
-      <div class="column">
-
-        <div class="columns is-multiline">
-          <div class="column is-narrow" v-for="(projeto, index) in this.$store.state.projetosDev">
-            <Project :projeto="projeto" v-show="mostraProjeto(projeto)"></Project>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
@@ -168,8 +159,21 @@ export default {
   padding: 1.25rem 1.5rem 1.25rem 1.5rem !important;
 }
 
-/* .drops{
-  position: sticky !important;
-  top: 50px !important;
-} */
+div.stica{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.notification-menu{
+  padding: .3rem 0px .3rem 0px !important;
+}
+
+.qtdDevs{
+  display: inline!important;
+}
+
+.filtroMenu{
+  margin: 0px 0px .3rem 0px !important;
+}
 </style>
