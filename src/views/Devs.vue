@@ -1,18 +1,7 @@
 <template lang="html">
   <div class="">
-    <div class="notification is-white">
-      <h1>Projetos</h1>
-      <p class="help">*Para aplicar os filtros passe o mouse sobre os switchers ou os pressione pelo celular. Caso queira marcar/desmarcar a categoria inteira ou um item específico, basta clicar no switch.</p>
-    </div>
-
-    <!-- visualizar resultados -->
-    <!-- {{langs}}
-    {{frameworks}}
-    {{libs}} -->
-
     <div class="stica notification notification-menu is-light has-text-centered">
       <p class="filtroMenu"><span class="title n-project">{{qtdProjetos}}/{{$store.state.projetosDev.length}}</span>&nbsp;&nbsp;<span class="help qtdDevs">{{textoQtdProjetos}}</span></p>
-
 
       <b-tooltip label="Linguagens de programação">
         <dropdown @alteraLinguagem="alteraLinguagem($event)" :ip="true" classe="is-primary" espec="linguagens">
@@ -32,13 +21,12 @@
 
     <div class="notification is-white">
       <div class="columns is-multiline">
-        <div class="column is-narrow" v-for="(projeto, index) in this.$store.state.projetosDev">
+        <div class="column is-narrow" v-for="(projeto, index) in this.$store.state.projetosDev" :key="index">
           <Project :projeto="projeto" v-show="mostraProjeto(projeto)"></Project>
         </div>
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -104,8 +92,6 @@ export default {
         this.textoQtdProjetos = "projeto filtrado"
       }
       return contador;
-
-
     }
   },
   methods: {
@@ -120,25 +106,25 @@ export default {
     },
     mostraProjeto(projeto) {
       // let retorno = false;
-      for (var i = 0; i < projeto.langs.length; i++) {
-        for (var j = 0; j < this.langs.length; j++) {
-          if (projeto.langs[i] == this.langs[j]) {
+      for (let i = 0; i < projeto.langs.length; i++) {
+        for (let j = 0; j < this.langs.length; j++) {
+          if (projeto.langs[i] === this.langs[j]) {
             // console.log(projeto.nome);
             return true;
           }
         }
       }
-      for (var i = 0; i < projeto.frameworks.length; i++) {
-        for (var j = 0; j < this.frameworks.length; j++) {
-          if (projeto.frameworks[i] == this.frameworks[j]) {
+      for (let i = 0; i < projeto.frameworks.length; i++) {
+        for (let j = 0; j < this.frameworks.length; j++) {
+          if (projeto.frameworks[i] === this.frameworks[j]) {
             // console.log(projeto.nome);
             return true;
           }
         }
       }
-      for (var i = 0; i < projeto.libs.length; i++) {
-        for (var j = 0; j < this.libs.length; j++) {
-          if (projeto.libs[i] == this.libs[j]) {
+      for (let i = 0; i < projeto.libs.length; i++) {
+        for (let j = 0; j < this.libs.length; j++) {
+          if (projeto.libs[i] === this.libs[j]) {
             // console.log(projeto.nome);
             return true;
           }
